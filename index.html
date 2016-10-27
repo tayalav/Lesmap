@@ -161,7 +161,7 @@ map.on('click', function (e) {
     if (features.length) {
         // Get coordinates from the symbol and center the map on those coordinates
         map.flyTo({center: features[0].geometry.coordinates, zoom: 16.2});
-    }
+    } else {map.flyTo({center: [37.614,55.750],zoom: 12.7})}
 });
 </script>
 
