@@ -32,9 +32,16 @@ var map = new mapboxgl.Map({
     center: [37.614,55.750],
     zoom: 12.7,
     doubleClickZoom: true,
+    attributionControl: true,
 });
 
 map.on('load', function() {
+  setTimeout(function() {
+    var credits = ' | Design by <a href="http://urbica.co" target="_blank"><b>Urbica</b></a>';
+    var attrEls = document.getElementsByClassName('mapboxgl-ctrl-attrib');
+    if (attrEls.length > 0) attrEls[0].insertAdjacentHTML('beforeend', credits);
+  }, 0);
+
     // Add a GeoJSON source containing place coordinates and information.
     map.addSource("places", {
         "type": "geojson",
